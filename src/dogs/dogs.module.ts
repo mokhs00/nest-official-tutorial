@@ -6,4 +6,4 @@ import { DogsController } from './dogs.controller';
   controllers: [DogsController],
   providers: [DogsService],
 })
-export class DogsModule { }
+export class DogsModule {}

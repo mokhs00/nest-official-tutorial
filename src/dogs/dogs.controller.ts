@@ -5,7 +5,7 @@ import { DogsService } from './dogs.service';
 
 @Controller('dogs')
 export class DogsController {
-  constructor(private readonly dogsService: DogsService) { }
+  constructor(private readonly dogsService: DogsService) {}
 
   @Post()
   async create(@Body() createDogDto: CreateDogDto) {
