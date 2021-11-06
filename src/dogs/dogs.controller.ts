@@ -1,11 +1,12 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Post } from '@nestjs/common';
 import { Dog } from 'src/dogs/interface/dogs.interface';
 import { CreateDogDto } from './dto/create-dog.dto';
 import { DogsService } from './dogs.service';
+import { ApiException } from 'exception/api.exception';
 
 @Controller('dogs')
 export class DogsController {
-  constructor(private readonly dogsService: DogsService) {}
+  constructor(private readonly dogsService: DogsService) { }
 
   @Post()
   async create(@Body() createDogDto: CreateDogDto) {
@@ -14,6 +15,7 @@ export class DogsController {
 
   @Get()
   async findAll(): Promise<Dog[]> {
-    return this.dogsService.findAll();
+    throw new ApiException('error response test', HttpStatus.NOT_FOUND);
+    // return this.dogsService.findAll();
   }
 }
